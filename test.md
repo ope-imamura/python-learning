@@ -1,0 +1,863 @@
+---
+marp: true
+theme: default
+paginate: false
+footer: © オープンアップエンジニア2024
+style: |
+  section {
+    font-family: 'Meiryo UI', 'Noto Sans JP', sans-serif;
+    font-size: 24px;
+    padding: 40px;
+  }
+  header {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    font-size: 18px;
+    color: #666;
+  }
+  footer {
+    position: absolute;
+    left: auto !important;
+    right: 30px !important;
+    bottom: 20px;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px; /* フッターの高さに内容が被らないように（字幕用マージン） */
+    text-align: right !important;
+  }
+  h1 {
+    font-size: 54px;
+    color: #FF8C00;
+    margin-top: 100px;
+    text-align: center;
+    border-bottom: 4px solid #FF8C00;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 38px;
+    background: linear-gradient(90deg, #FF8C00, rgba(255, 140, 0, 0.7));
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 40px;
+    margin: 0;
+    z-index: 10;
+  }
+  h3 {
+    color: #FF8C00;
+    font-size: 34px;
+    border-left: 8px solid #FF8C00;
+    padding-left: 16px;
+  }
+  a {
+    color: #0078D7;
+    text-decoration: none;
+  }
+  strong {
+    color: #FF8C00;
+    font-weight: bold;
+  }
+  em {
+    font-style: normal;
+    font-weight: bold;
+    color: #666;
+  }
+  ul, ol {
+    margin-left: 30px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
+  }
+  th {
+    background-color: #FF8C00;
+    color: white;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  td {
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .highlight {
+    background-color: rgba(255, 140, 0, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .small-image {
+    max-width: 60%;
+  }
+  .background-cover {
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  .title-slide {
+    background-color: #f5f5f5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 重要度に基づく色設定 */
+  .importance-high {
+    color: #FF8C00; /* オレンジ */
+    font-weight: bold;
+    font-size: larger;
+  }
+  .importance-medium {
+    color: #4D8EA0; /* アクア */
+    font-weight: bold;
+    font-size: larger;
+  }
+  .importance-low {
+    background-color: #E0E0E0; /* 塗りつぶし（大字なし） */
+    font-size: larger;
+  }
+  .tips {
+    background-color: #FFF3E0;
+    border-left: 5px solid #FF8C00;
+    padding: 15px;
+    margin: 20px 0;
+  }
+---
+
+<!-- 
+タイトルスライド
+-->
+
+# データ型
+## プログラムが扱うデータの種類
+
+<div class="center title-slide">
+<p>株式会社オープンアップエンジニア</p>
+</div>
+
+---
+
+## Index
+
+1. データと演算子_Introduction
+
+**2. データ型**
+
+3. 演算子
+
+4. データと演算子_Summary
+
+---
+
+## データ型とは
+### 変数が保持できるデータの種類
+
+<span class="importance-high">データ型とは、変数に格納されるデータの種類や特性を定義したもの</span>です。
+
+- データ型によって、そのデータで<span class="importance-medium">どのような操作ができるか</span>が決まります
+
+- Pythonは<span class="importance-medium">動的型付け言語</span>で、変数に格納する値に応じて自動的にデータ型が決まります
+
+<div class="tips">
+データ型を理解することで、適切な操作や処理を行えるようになります。例えば、数値には足し算や掛け算ができますが、文字列では別の操作（結合など）が行われます。
+</div>
+
+---
+
+## Pythonの主要なデータ型
+### 基本的なデータ型
+
+<span class="importance-high">Pythonには以下のような基本的なデータ型があります：</span>
+
+- <span class="importance-high">数値型</span>
+  - 整数型（int）
+  - 浮動小数点型（float）
+
+- <span class="importance-high">文字列型（str）</span>
+
+- <span class="importance-high">ブール型（bool）</span>
+  - True（真）
+  - False（偽）
+
+---
+
+## Pythonの主要なデータ型
+### その他のデータ型
+
+- <span class="importance-medium">None型</span>
+  - 値が存在しないことを表す
+
+- <span class="importance-medium">コレクション型</span>（次の研修で詳しく学びます）
+  - リスト（list）
+  - タプル（tuple）
+  - 辞書（dict）
+  - 集合（set）
+
+<div class="tips">
+この研修では、主に基本的なデータ型（数値型、文字列型、ブール型）について学びます。コレクション型については次回以降の研修で詳しく学習します。
+</div>
+
+---
+
+## 整数型（int）
+### 小数点のない数値
+
+<span class="importance-high">整数型（int）とは</span>
+
+- 小数点のない正数、負数、0を表すデータ型
+- 例：1, 42, -10, 0
+
+```python
+age = 25
+temperature = -5
+count = 0
+
+print(type(age))  # <class 'int'>
+```
+
+---
+
+## 整数型（int）
+### 整数型の表現方法
+
+Pythonでは様々な形式で整数を表現できます：
+
+```python
+# 10進数表記（通常の表記）
+decimal = 42
+
+# 2進数表記（0bで始まる）
+binary = 0b101010  # 42
+
+# 16進数表記（0xで始まる）
+hexa = 0x2A  # 42
+
+# 8進数表記（0oで始まる）
+octal = 0o52  # 42
+```
+
+---
+
+## 整数型（int）
+### 整数型の特徴
+
+- <span class="importance-medium">桁数制限がない</span>
+  - メモリの許す限り大きな数を扱える
+  - 非常に大きな数も正確に計算できる
+
+- <span class="importance-medium">算術演算が可能</span>
+  - 加算（+）、減算（-）
+  - 乗算（*）、除算（/）
+  - 整数除算（//）、剰余（%）
+  - べき乗（**）
+
+<div class="tips">
+整数型はカウンター、インデックス、年齢や個数など、日常的によく使われるデータ型です。
+</div>
+
+---
+
+## 浮動小数点型（float）
+### 小数点を含む数値
+
+<span class="importance-high">浮動小数点型（float）とは</span>
+
+- 小数点を含む数値を表すデータ型
+- 例：3.14, 0.5, -2.718
+
+```python
+height = 175.5
+pi = 3.14159
+negative = -0.5
+
+print(type(height))  # <class 'float'>
+```
+
+---
+
+## 浮動小数点型（float）
+### 科学表記法
+
+大きな数や小さな数は科学表記法で表現できます：
+
+```python
+# 1.23 × 10^6（1,230,000）
+large_number = 1.23e6
+print(large_number)  # 1230000.0
+
+# 7.65 × 10^-4（0.000765）
+small_number = 7.65e-4
+print(small_number)  # 0.000765
+```
+
+---
+
+## 浮動小数点型（float）
+### 浮動小数点型の特徴
+
+- <span class="importance-medium">精度に制限がある</span>
+  - ごくわずかな誤差が生じることがある
+  - 例：0.1 + 0.2 = 0.30000000000000004
+
+- <span class="importance-medium">整数型と同様の算術演算が可能</span>
+
+<div class="tips">
+浮動小数点型は、身長や体重などの計測値、確率や割合、科学的計算、金額計算などによく使われます。ただし、金額計算では誤差に注意が必要です。
+</div>
+
+---
+
+## 数値型の変換
+### 整数と浮動小数点数の相互変換
+
+<span class="importance-high">整数型と浮動小数点型は互いに変換することができます。</span>
+
+### 整数から浮動小数点数へ
+
+```python
+age = 25
+age_float = float(age)
+
+print(age)         # 25
+print(age_float)   # 25.0
+print(type(age_float))  # <class 'float'>
+```
+
+---
+
+## 数値型の変換
+### 浮動小数点数から整数への変換
+
+```python
+height = 175.6
+height_int = int(height)  # 小数点以下切り捨て
+
+print(height)      # 175.6
+print(height_int)  # 175
+print(type(height_int))  # <class 'int'>
+```
+
+<div class="tips">
+<span class="importance-medium">注意：</span><code>int()</code>による浮動小数点数から整数への変換では、小数点以下が切り捨てられます（四捨五入ではありません）。四捨五入するには<code>round()</code>関数を使います。
+
+```python
+x = 3.7
+print(int(x))       # 3（切り捨て）
+print(round(x))     # 4（四捨五入）
+```
+</div>
+
+---
+
+## 文字列型（str）
+### テキストデータを扱う型
+
+<span class="importance-high">文字列型（str）とは</span>
+
+- テキストデータを表すデータ型
+- 一連の文字（文字、数字、記号など）の集まり
+- シングルクォート（'）またはダブルクォート（"）で囲む
+
+```python
+name = "Python"
+message = 'Hello, World!'
+print(type(name))  # <class 'str'>
+```
+
+---
+
+## 文字列型（str）
+### 文字列の宣言方法
+
+Pythonでは、様々な方法で文字列を宣言できます：
+
+```python
+# 単一引用符（シングルクォート）
+name = 'Python'
+
+# 二重引用符（ダブルクォート）
+message = "Hello, World!"
+
+# 三重引用符（複数行の文字列）
+description = """これは
+複数行の
+文字列です。"""
+
+# 三重単一引用符も可能
+another = '''これも
+複数行の
+文字列です。'''
+```
+
+---
+
+## 文字列型（str）
+### 文字列の特徴
+
+- <span class="importance-medium">イミュータブル（不変）</span>
+  - 一度作成した文字列は変更できない
+  - 変更するには新しい文字列を作成する
+
+- <span class="importance-medium">インデックスアクセス</span>
+  - 文字列内の各文字は位置（インデックス）でアクセス可能
+  - インデックスは0から始まる
+
+```python
+text = "Python"
+first_char = text[0]  # 'P'
+second_char = text[1]  # 'y'
+```
+
+---
+
+## 文字列の操作
+### 基本的な文字列操作（1）
+
+<span class="importance-high">文字列型には多くの便利な操作があります。</span>
+
+### 文字列の連結（+演算子）
+
+```python
+first_name = "山田"
+last_name = "太郎"
+full_name = first_name + " " + last_name
+print(full_name)  # "山田 太郎"
+```
+
+### 文字列の繰り返し（*演算子）
+
+```python
+star = "*"
+line = star * 10
+print(line)  # "**********"
+```
+
+---
+
+## 文字列の操作
+### 基本的な文字列操作（2）
+
+### 文字列の長さを調べる
+
+```python
+message = "Hello, Python!"
+length = len(message)
+print(length)  # 14
+```
+
+### 文字列内の検索
+
+```python
+text = "Python Programming"
+has_python = "Python" in text
+print(has_python)  # True
+
+position = text.find("Pro")
+print(position)  # 7（0から数えて7番目に位置）
+```
+
+---
+
+## 文字列のメソッド
+### 便利な文字列操作関数（1）
+
+<span class="importance-high">文字列型には多くの便利なメソッド（関数）が用意されています。</span>
+
+### 大文字・小文字変換
+
+```python
+text = "Python"
+upper_text = text.upper()
+lower_text = text.lower()
+
+print(upper_text)  # "PYTHON"
+print(lower_text)  # "python"
+```
+
+---
+
+## 文字列のメソッド
+### 便利な文字列操作関数（2）
+
+### 空白の除去
+
+```python
+text = "  Python  "
+trimmed = text.strip()
+print(trimmed)  # "Python"
+
+# 左側のみ除去
+left_trim = text.lstrip()
+print(left_trim)  # "Python  "
+
+# 右側のみ除去
+right_trim = text.rstrip()
+print(right_trim)  # "  Python"
+```
+
+---
+
+## 文字列のメソッド
+### 便利な文字列操作関数（3）
+
+### 文字列の置換
+
+```python
+text = "Hello, Java!"
+new_text = text.replace("Java", "Python")
+print(new_text)  # "Hello, Python!"
+```
+
+### 文字列の分割
+
+```python
+text = "Python,Java,C++"
+languages = text.split(",")
+print(languages)  # ['Python', 'Java', 'C++']
+```
+
+<div class="tips">
+これらのメソッドは元の文字列を変更するのではなく、<span class="importance-medium">新しい文字列を返す</span>点に注意してください。文字列はイミュータブル（不変）なので、直接変更することはできません。
+</div>
+
+---
+
+## 文字列書式設定
+### 値を文字列に埋め込む方法（1）
+
+<span class="importance-high">Pythonでは、変数の値を文字列に埋め込むための複数の方法があります。</span>
+
+### format()メソッド
+
+```python
+name = "山田"
+age = 25
+message = "私の名前は{}で、{}歳です。".format(name, age)
+print(message)
+# "私の名前は山田で、25歳です。"
+```
+
+---
+
+## 文字列書式設定
+### 値を文字列に埋め込む方法（2）
+
+### format()メソッド（位置や名前で指定）
+
+```python
+# 位置指定
+msg = "{1}は{0}歳です。".format(age, name)
+print(msg)
+# "山田は25歳です。"
+
+# 名前指定
+info = "{name}は{age}歳で、{height}cmです。".format(
+    name="山田", 
+    age=25, 
+    height=175
+)
+print(info)
+# "山田は25歳で、175cmです。"
+```
+
+---
+
+## 文字列書式設定
+### 値を文字列に埋め込む方法（3）
+
+### f-strings（Python 3.6以降）
+
+```python
+name = "山田"
+age = 25
+message = f"私の名前は{name}で、{age}歳です。"
+print(message)
+# "私の名前は山田で、25歳です。"
+
+# 式の埋め込み
+total = f"合計: {30 + 50}円"
+print(total)
+# "合計: 80円"
+```
+
+<div class="tips">
+<span class="importance-medium">f-strings</span>は、Python 3.6以降で導入された最新の文字列書式設定方法です。コードが簡潔で読みやすくなるため、現在では最も推奨される方法です。
+</div>
+
+---
+
+## 文字列と数値の変換
+### 型変換の方法（1）
+
+<span class="importance-high">文字列と数値の間で変換が必要になることがよくあります。</span>
+
+### 数値から文字列への変換
+
+```python
+age = 25
+age_str = str(age)
+
+print(age)       # 25
+print(age_str)   # "25"
+print(type(age_str))  # <class 'str'>
+
+# 文字列連結が可能に
+message = "年齢: " + age_str
+print(message)   # "年齢: 25"
+```
+
+---
+
+## 文字列と数値の変換
+### 型変換の方法（2）
+
+### 文字列から数値への変換
+
+```python
+num_str = "42"
+num_int = int(num_str)
+num_float = float(num_str)
+
+print(num_str)     # "42"
+print(num_int)     # 42
+print(num_float)   # 42.0
+
+# 算術演算が可能に
+result = num_int * 2
+print(result)      # 84
+```
+
+---
+
+## 文字列と数値の変換
+### 注意点
+
+<div class="tips">
+<span class="importance-medium">注意：</span>数値に変換できない文字列に対して<code>int()</code>や<code>float()</code>を使用するとエラーが発生します。
+</div>
+
+```python
+# これはエラーになる例
+invalid = "abc"
+# int(invalid)  # ValueError: invalid literal for int()
+
+# 小数点を含む文字列は直接intに変換できない
+price = "42.5"
+# int(price)  # ValueError
+
+# 正しい方法
+price_float = float(price)  # まず浮動小数点に変換
+price_int = int(price_float)  # 次に整数に変換
+print(price_int)  # 42
+```
+
+---
+
+## 型変換の注意点
+### 安全な型変換の方法
+
+<span class="importance-high">文字列から数値への変換時は注意が必要です。</span>
+
+### 数字だけの文字列かを確認する方法
+
+```python
+# 文字列が数字だけで構成されているか確認
+user_input = "123"
+is_number = user_input.isdigit()
+print(is_number)  # True
+
+# 文字が含まれている場合
+text = "abc123"
+is_number = text.isdigit()
+print(is_number)  # False
+```
+
+---
+
+## 型変換の注意点
+### エラーを避ける方法
+
+<div class="tips">
+<span class="importance-medium">変換エラーを避けるには：</span>変換できない値を変換しようとするとエラーが発生します。特にユーザー入力を処理する場合は注意が必要です。
+</div>
+
+```python
+# 良い例：安全に数値に変換
+text = "123"
+if text.isdigit():  # 数字だけで構成されているか確認
+    number = int(text)
+    print("変換結果:", number)  # 変換結果: 123
+```
+
+---
+
+## ブール型（bool）
+### 真偽値を表す型
+
+<span class="importance-high">ブール型（bool）とは</span>
+
+- 真（True）または偽（False）の2つの値のみを持つデータ型
+- プログラムの流れを制御するために使用される
+
+```python
+is_active = True
+is_completed = False
+
+print(type(is_active))  # <class 'bool'>
+```
+
+---
+
+## ブール型（bool）
+### ブール演算
+
+ブール値には、以下の論理演算子を使用できます：
+
+```python
+a = True
+b = False
+
+# AND演算（両方がTrueの場合のみTrue）
+print(a and b)  # False
+
+# OR演算（少なくとも1つがTrueならTrue）
+print(a or b)   # True
+
+# NOT演算（真偽を反転）
+print(not a)    # False
+print(not b)    # True
+```
+
+---
+
+## ブール型（bool）
+### 比較演算子の結果
+
+比較演算子は結果としてブール値を返します：
+
+```python
+x = 5
+y = 10
+
+print(x < y)    # True（xはyより小さい）
+print(x > y)    # False（xはyより大きくない）
+print(x == y)   # False（xとyは等しくない）
+print(x != y)   # True（xとyは等しくない）
+print(x <= y)   # True（xはy以下）
+print(x >= y)   # False（xはy以上ではない）
+```
+
+---
+
+## ブール型（bool）
+### 条件分岐での使用例
+
+ブール型は条件分岐でよく使われます：
+
+```python
+is_raining = True
+
+if is_raining:
+    print("傘を持って行きましょう。")
+else:
+    print("良い天気です。")
+
+# 比較結果を条件として使用
+age = 20
+if age >= 18:
+    print("成人です。")
+else:
+    print("未成年です。")
+```
+
+---
+
+## ブール値への変換
+### 他の型からブール型への変換（1）
+
+<span class="importance-high">Pythonでは、他のデータ型の値をブール値に変換できます。</span>
+
+### bool()関数
+
+```python
+# 数値のブール変換
+print(bool(1))        # True
+print(bool(0))        # False
+print(bool(42))       # True
+print(bool(-3))       # True
+
+# 文字列のブール変換
+print(bool("Hello"))  # True
+print(bool(""))       # False
+```
+
+---
+
+## ブール値への変換
+### 他の型からブール型への変換（2）
+
+### 様々な値のブール変換
+
+```python
+# リストのブール変換
+print(bool([1, 2]))   # True
+print(bool([]))       # False
+
+# 辞書のブール変換
+print(bool({"name": "山田"}))  # True
+print(bool({}))       # False
+
+# Noneのブール変換
+print(bool(None))     # False
+```
+
+---
+
+## ブール値への変換
+### 偽と評価される値（Falsy）
+
+以下の値は`bool()`で変換するとFalseになります：
+
+- `False`（ブール値のFalse）
+- `None`（値なし）
+- `0`（整数のゼロ）
+- `0.0`（浮動小数点のゼロ）
+- `""`（空文字列）
+- `[]`（空リスト）
+- `()`（空タプル）
+- `{}`（空辞書）
+- `set()`（空集合）
+
+それ以外の値は基本的にTrueと評価されます。

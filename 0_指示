@@ -1,0 +1,253 @@
+Python研修資料作成プロジェクト
+
+概要
+IT未経験者向けPython研修のための資料作成プロジェクトです。段階的に学習を進められるよう、基礎から応用へと系統立てた資料を作成します。
+
+作成依頼内容
+以下のテーマに沿った研修資料を順次作成してください。各資料はIT未経験の受講者が理解できるよう、基本的な概念から丁寧に説明してください。
+
+作成資料のテーマ一覧
+1_01_プログラミング基礎_Introduction
+1_02_プログラミングとは
+1_03_Pythonの特徴
+1_04_制御構文とは
+1_05_プログラミング基礎_Summary
+2_01_環境構築_Introduction
+2_02_Pythonインストール
+2_03_VSCodeインストール
+2_04_動作環境の確認
+2_05_Pythonの記述ルール
+2_06_環境構築Summary
+3_01_変数_Introduction
+3_02_変数（基礎）
+3_03_変数（高度）
+3_04_変数_Summary
+4_01_データと演算子_Introduction
+4_02_データ型
+4_03_演算子
+4_04_データと演算子_Summary
+5_01_コレクション_Introduction
+5_02_リスト
+5_03_リストの更新
+5_04_辞書
+5_05_辞書の更新
+5_06_集合とタプル
+5_07_コレクション_Summary
+6_01_条件分岐と繰り返し_Introduction
+6_02_条件分岐
+6_03_繰り返し
+6_04_条件分岐と繰り返し_Summary
+7_01_関数とクラス_Introduction
+7_02_組み込み関数
+7_03_自作関数
+7_04_クラス
+7_05_ライブラリ関数
+7_06_関数とクラス_Summary
+8_01_Streamlitを使用したアプリ開発_Introduction
+8_02_Streamlitの基本
+8_03_Streamlitの応用
+8_04_Streamlitを使用したアプリ開発_Summary
+9_01_GitとGitHub_Introduction
+9_02_Git
+9_03_Git_環境構築
+9_04_GitHub
+9_05_GitとGitHub_Summary
+
+
+
+資料作成の留意点
+
+出力はアーティファクトとして行うこと
+MARP形式で作成すること
+提供されたテンプレートを使用し、スタイルの一貫性を保つこと
+重要度に応じた強調表示を使用すること（importance-high, importance-medium, importance-low）
+各資料は前の資料との連続性を保ち、自然な学習の流れを作ること
+各トピックは基礎と応用に分け、まずは基本概念を十分に理解させること
+実際のコード例を多く含め、実践的な理解を促すこと
+新しい概念が出てきたときは丁寧に説明し、唐突な導入を避けること
+まだ学習していない概念（後の章で学ぶ内容）は事前説明を入れるか、別の手法で説明すること
+実用的な例を取り入れ、実際の業務でどのように使われるかイメージできるようにすること
+適宜、確認問題や練習問題を含め、理解度を確認できるようにすること
+資料の１ページあたりの情報量は多くしすぎないこと。ページ数は多くなっても良いです。
+初学者に必要な情報かどうかも判断しながら作成ください。初学者には難しく、最重要ではない内容は省いても良いです。
+
+テンプレート
+提供されているMARPテンプレートをそのまま使用してください。
+
+各スライドの構成は以下を参考にしてください：
+
+X_01_XXX_Introduction.mdのファイルは以下の構成にしてください。
+タイトルスライド
+目次
+ゴール（highlight クラスで強調）
+
+それ以外のX_YY_テーマ名.mdに関しては以下の構成にしてください
+タイトルスライド
+index
+本編
+まとめ
+
+ファイル命名規則
+X_YY_テーマ名.mdの形式でファイル名を付けてください。
+
+X: セクション番号
+YY: サブセクション番号
+
+テンプレート：
+---
+marp: true
+theme: default
+paginate: false
+footer: © オープンアップエンジニア2024
+style: |
+  section {
+    font-family: 'Meiryo UI', 'Noto Sans JP', sans-serif;
+    font-size: 24px;
+    padding: 40px;
+  }
+  header {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    font-size: 18px;
+    color: #666;
+  }
+  footer {
+    position: absolute;
+    left: auto !important;
+    right: 30px !important;
+    bottom: 20px;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px; /* フッターの高さに内容が被らないように（字幕用マージン） */
+    text-align: right !important;
+  }
+  h1 {
+    font-size: 54px;
+    color: #FF8C00;
+    margin-top: 100px;
+    text-align: center;
+    border-bottom: 4px solid #FF8C00;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 38px;
+    background: linear-gradient(90deg, #FF8C00, rgba(255, 140, 0, 0.7));
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 40px;
+    margin: 0;
+    z-index: 10;
+  }
+  h3 {
+    color: #FF8C00;
+    font-size: 34px;
+    border-left: 8px solid #FF8C00;
+    padding-left: 16px;
+  }
+  a {
+    color: #0078D7;
+    text-decoration: none;
+  }
+  strong {
+    color: #FF8C00;
+    font-weight: bold;
+  }
+  em {
+    font-style: normal;
+    font-weight: bold;
+    color: #666;
+  }
+  ul, ol {
+    margin-left: 30px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
+  }
+  th {
+    background-color: #FF8C00;
+    color: white;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  td {
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .highlight {
+    background-color: rgba(255, 140, 0, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .small-image {
+    max-width: 60%;
+  }
+  .background-cover {
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  .title-slide {
+    background-color: #f5f5f5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 重要度に基づく色設定 */
+  .importance-high {
+    color: #FF8C00; /* オレンジ */
+    font-weight: bold;
+    font-size: larger;
+  }
+  .importance-medium {
+    color: #4D8EA0; /* アクア */
+    font-weight: bold;
+    font-size: larger;
+  }
+  .importance-low {
+    background-color: #E0E0E0; /* 塗りつぶし（大字なし） */
+    font-size: larger;
+  }
+  .tips {
+    background-color: #FFF3E0;
+    border-left: 5px solid #FF8C00;
+    padding: 15px;
+    margin: 20px 0;
+  }
+---
