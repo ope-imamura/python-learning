@@ -148,12 +148,6 @@ style: |
     background-color: #E0E0E0; /* 塗りつぶし（大字なし） */
     font-size: larger;
   }
-  .tips {
-    background-color: #FFF3E0;
-    border-left: 5px solid #FF8C00;
-    padding: 15px;
-    margin: 20px 0;
-  }
 ---
 
 <!-- 
@@ -161,7 +155,7 @@ style: |
 -->
 
 # Introduction
-## コレクション
+## プログラミング基礎知識
 
 <div class="center title-slide">
 <p>株式会社オープンアップエンジニア</p>
@@ -171,11 +165,9 @@ style: |
 
 ## 目次
 
-1. リスト
-2. リストの更新
-3. 辞書
-4. 辞書の更新
-5. 集合とタプル
+1. プログラミングとは
+2. Pythonの特徴
+3. 制御構文とは
 
 ---
 ## 目次
@@ -183,8 +175,7 @@ style: |
 <div class="highlight">
 Lessonのゴール
 
-①複数のデータをまとめて扱うコレクション型を理解する
-②コレクション型の種類と使い分けを習得する
-③データの追加・削除・更新の方法を習得する
-④コレクション型を活用したプログラミングができるようになる
+①プログラミングとは何かを理解する
+②Pythonの特徴を理解する
+③制御構文とは何かを理解する
 </div>
